@@ -15,30 +15,30 @@ public class AppDriver {
 
         String firstname, lastname, email, phoneNumber, address, dob;
 
-        firstname = "Nicole";
-        lastname = "Ishimwe";
-        email = "nicoleishimwe12@gmail.com";
-        phoneNumber = "615-600-1413";
-        address = "1415 Quail Run, Nashville, TN 37214";
-        dob = "1997-05-17";
+        firstname = "Ni";
+        lastname = "Ish";
+        email = "nikishi@email.com";
+        phoneNumber = "605-000-0403";
+        address = "1400 Alt Run, Nashville, TN 31211";
+        dob = "1907-05-10";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
         service.addMember(dto);
 
         firstname = "Jean Bosco";
-        lastname = "Nzeyimana";
-        email = "contact@bosconzeyi.com";
-        phoneNumber = "615-600-1413";
+        lastname = "Nzeyi";
+        email = "contact@email.com";
+        phoneNumber = "605-000-0403";
         address = "12 KK street, Kigali, RW 14152";
-        dob = "1993-11-01";
+        dob = "1093-01-01";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
         service.addMember(dto);
 
-        firstname = "Dominique";
-        lastname = "Nsengimana";
-        email = "dominiquesenga@gmail.com";
-        phoneNumber = "072-220-3021";
+        firstname = "Nique";
+        lastname = "Imana";
+        email = "iquesenga@email.com";
+        phoneNumber = "002-220-3021";
         address = "1st Nyungwe Rd, Kitabi Ecocenter Ltd. Nymgbe, Rwanda 34345";
         dob = "1988-01-01";
 
