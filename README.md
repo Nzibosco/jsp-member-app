@@ -1,1 +1,1 @@
-# jsp-member-app
+# JSP Members App
