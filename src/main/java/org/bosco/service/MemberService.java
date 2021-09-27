@@ -16,11 +16,17 @@ public class MemberService {
 
     public void addMember (MemberDTO dto){
         validate.setDto(dto);
-        if(validate.isValid(dto)){
+        //if(validate.isValid(dto)){
+
+        try {
+            validate.isValid(dto);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
             MemberDTO cleanDto = validate.cleanDTO();
             repo.addMember(cleanDto.getFirstname(), cleanDto.getLastname(), cleanDto.getEmail(),
                     cleanDto.getPhoneNumber(),cleanDto.getAddress(),cleanDto.getDob());
-        }
+        //}
     }
 
     public void printMembers (){

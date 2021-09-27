@@ -36,7 +36,7 @@ public class AppDriver {
         service.addMember(dto);
 
         firstname = "Nique";
-        lastname = "Imana";
+        lastname = "Senga";
         email = "iquesenga@email.com";
         phoneNumber = "002-220-3021";
         address = "1st Nyungwe Rd, Kitabi Ecocenter Ltd. Nymgbe, Rwanda 34345";
