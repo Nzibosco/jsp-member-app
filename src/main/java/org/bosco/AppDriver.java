@@ -23,17 +23,26 @@ public class AppDriver {
         dob = "1907-05-10";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
-        service.addMember(dto);
+        try {
+            service.addMember(dto);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
 
         firstname = "Jean Bosco";
-        lastname = "Nzeyi";
+        lastname = null;
         email = "contact@email.com";
         phoneNumber = "605-000-0403";
         address = "12 KK street, Kigali, RW 14152";
         dob = "1093-01-01";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
-        service.addMember(dto);
+        try {
+            service.addMember(dto);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         firstname = "Nique";
         lastname = "Senga";
@@ -43,7 +52,19 @@ public class AppDriver {
         dob = "1988-01-01";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
-        service.addMember(dto);
+        try {
+            service.addMember(dto);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        dto = null;
+
+        try {
+            service.addMember(dto);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
         service.printMembers();
 

@@ -1,6 +1,9 @@
 package org.bosco.service;
 
 import org.bosco.dtos.MemberDTO;
+import org.bosco.exceptions.FieldsEmptyException;
+import org.bosco.exceptions.InvalidMemberException;
+import org.bosco.exceptions.InvalidNameException;
 import org.bosco.repository.MembersRepo;
 import org.bosco.validation.ValidateMember;
 
@@ -14,19 +17,22 @@ public class MemberService {
         repo = new MembersRepo();
     }
 
-    public void addMember (MemberDTO dto){
+    public void addMember (MemberDTO dto) throws InvalidNameException {
         validate.setDto(dto);
-        //if(validate.isValid(dto)){
+        if(validate.isValid(dto)){
 
-        try {
-            validate.isValid(dto);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
             MemberDTO cleanDto = validate.cleanDTO();
-            repo.addMember(cleanDto.getFirstname(), cleanDto.getLastname(), cleanDto.getEmail(),
-                    cleanDto.getPhoneNumber(),cleanDto.getAddress(),cleanDto.getDob());
-        //}
+
+            if(validate.validateFields(dto)) {
+                repo.addMember(cleanDto.getFirstname(), cleanDto.getLastname(), cleanDto.getEmail(),
+                        cleanDto.getPhoneNumber(), cleanDto.getAddress(), cleanDto.getDob());
+            } else {
+                throw new FieldsEmptyException();
+            }
+        }
+        else {
+            throw new InvalidMemberException();
+        }
     }
 
     public void printMembers (){
