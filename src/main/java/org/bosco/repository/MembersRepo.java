@@ -4,6 +4,7 @@ import org.bosco.dtos.MemberDTO;
 import org.bosco.entities.JspMember;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -33,6 +34,16 @@ public class MembersRepo {
             System.out.println("Member number: " + member.getKey());
             System.out.println("Member details: ");
             System.out.println(member.getValue().toString());
+        }
+
+        System.out.println("\n ====Printing members using iterator ====== ");
+        for(Iterator<Map.Entry<Integer,JspMember>> iterator = members.entrySet().iterator(); iterator.hasNext();){
+                Map.Entry<Integer, JspMember> m = iterator.next();
+                System.out.println("..................Member key data ..........................");
+                System.out.println("Member number: " + m.getKey());
+                System.out.println("Member fullnames: " + m.getValue().getFirstname() + " "+
+                        m.getValue().getLastname());
+
         }
     }
 
