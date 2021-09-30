@@ -24,8 +24,18 @@ public class MemberService {
             MemberDTO cleanDto = validate.cleanDTO();
 
             if(validate.validateFields(dto)) {
-                repo.addMember(cleanDto.getFirstname(), cleanDto.getLastname(), cleanDto.getEmail(),
-                        cleanDto.getPhoneNumber(), cleanDto.getAddress(), cleanDto.getDob());
+
+                try {
+
+                    boolean validName = validate.validateName(cleanDto.getFirstname(), cleanDto.getLastname());
+                    if(validName) {
+                        repo.addMember(cleanDto.getFirstname(), cleanDto.getLastname(), cleanDto.getEmail(),
+                                cleanDto.getPhoneNumber(), cleanDto.getAddress(), cleanDto.getDob());
+                    }
+                } catch (InvalidNameException e){
+                    System.out.println(e.getMessage());
+                }
+
             } else {
                 throw new FieldsEmptyException();
             }
@@ -40,4 +50,5 @@ public class MemberService {
         System.out.println("=== Prepping to Print all members ..................");
         repo.printAllMembers();
     }
+
 }

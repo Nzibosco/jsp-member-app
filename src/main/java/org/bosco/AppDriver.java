@@ -15,8 +15,8 @@ public class AppDriver {
 
         String firstname, lastname, email, phoneNumber, address, dob;
 
-        firstname = "Ni";
-        lastname = "Ish";
+        firstname = "nik";
+        lastname = "Ish2";
         email = "nikishi@email.com";
         phoneNumber = "605-000-0403";
         address = "1400 Alt Run, Nashville, TN 31211";
@@ -31,7 +31,7 @@ public class AppDriver {
 
 
         firstname = "Jean Bosco";
-        lastname = null;
+        lastname = "nzeyi";
         email = "contact@email.com";
         phoneNumber = "605-000-0403";
         address = "12 KK street, Kigali, RW 14152";
@@ -45,17 +45,18 @@ public class AppDriver {
         }
 
         firstname = "Nique";
-        lastname = "Senga";
+        lastname = "SengaMungu";
         email = "iquesenga@email.com";
         phoneNumber = "002-220-3021";
-        address = "1st Nyungwe Rd, Kitabi Ecocenter Ltd. Nymgbe, Rwanda 34345";
-        dob = "1988-01-01";
+        address = "1st Nyungwe West Rd, Kitabi Ecocenter Ltd. & Friends of Nyungwe, Nymgbe, Rwanda 34345";
+        dob = "1988-01-21";
 
         dto = new MemberDTO(firstname, lastname, email, phoneNumber, address, dob);
         try {
             service.addMember(dto);
         } catch (Exception e){
             System.out.println(e.getMessage());
+
         }
 
         dto = null;
