@@ -28,6 +28,10 @@ public class MembersRepo {
 
     }
 
+    public Iterable<JspMember> getAll (){
+        return members.values();
+    }
+
     public void printAllMembers (){
         for(Map.Entry<Integer, JspMember> member : members.entrySet()){
             System.out.println("=========================================================");

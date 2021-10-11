@@ -9,9 +9,9 @@ public class AppDriver {
         System.out.println("Java Server Page Demo Application");
 
         MemberService service;
+        service = new MemberService();
         MemberDTO dto;
 
-        service = new MemberService();
 
         String firstname, lastname, email, phoneNumber, address, dob;
 

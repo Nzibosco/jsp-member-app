@@ -1,5 +1,6 @@
 package org.bosco.dtos;
 import org.bosco.entities.JspMember;
+import org.bosco.exceptions.InvalidMemberException;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -54,6 +55,31 @@ public class MemberDTO {
         member.setDob(dateOfBirth);
 
         return member;
+    }
+
+    /**
+     * Method to create a memberDTO from JspMember
+     * @return
+     */
+
+    public MemberDTO createDTOfromMember (JspMember member){
+        MemberDTO memberDTO = null;
+
+        if(member != null){
+            memberDTO = new MemberDTO();
+            memberDTO.setFirstname(member.getFirstname());
+            memberDTO.setLastname(member.getLastname());
+            memberDTO.setEmail(member.getEmail());
+            memberDTO.setPhoneNumber(member.getPhoneNumber());
+            memberDTO.setAddress(member.getAddress());
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, YYYY");
+            memberDTO.setDob(formatter.format(member.getDob()));
+
+            return memberDTO;
+        }
+
+        throw new InvalidMemberException();
     }
 
 

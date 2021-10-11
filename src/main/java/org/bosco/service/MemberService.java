@@ -1,11 +1,16 @@
 package org.bosco.service;
 
 import org.bosco.dtos.MemberDTO;
+import org.bosco.entities.JspMember;
 import org.bosco.exceptions.FieldsEmptyException;
 import org.bosco.exceptions.InvalidMemberException;
 import org.bosco.exceptions.InvalidNameException;
 import org.bosco.repository.MembersRepo;
 import org.bosco.validation.ValidateMember;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class MemberService {
 
@@ -44,6 +49,18 @@ public class MemberService {
             throw new InvalidMemberException();
         }
     }
+
+    public Iterable<MemberDTO> getMembers (){
+        List<MemberDTO> memberList = new ArrayList<>();
+        MemberDTO dto = new MemberDTO();
+        if(repo.getAll() != null){
+            repo.getAll().forEach(member -> memberList.add(dto.createDTOfromMember(member)));
+        }
+
+        return memberList;
+
+    }
+
 
     public void printMembers (){
         // Check if the request came from authentic source? Feature to be added later

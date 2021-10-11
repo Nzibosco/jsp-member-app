@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Members APP</title>
+</head>
+<body>
+
+<h3>Welcome to Member App</h3>
+<h5>The easiest way to manage members of any group</h5>
+<h5>We will be using JSP - Java Server Pages to render backend data</h5>
+<div>
+    <button id="welcome-btn" type="button">Display Welcome Message</button>
+    <p id="message"></p>
+    <p id ="date"></p>
+</div>
+<div>
+    <h3>Fill the form below to add a member </h3>
+    <br>
+    <br>
+    <table>
+            <tr>
+                <td>First name: </td>
+                <td><input type="text" id="fname" placeholder="Enter first name here"></td>
+            </tr>
+            <tr>
+                <td>Last name: </td>
+                <td> <input type="text" id="lname" placeholder=" Enter last name here"></td>
+            </tr>
+            <tr>
+                <td>Email: </td>
+                <td> <input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>Phone number: </td>
+                <td><input type="text" id="phone"></td>
+            </tr>
+            <tr>
+                <td>Address: </td>
+                <td> <input type="text" id="address" placeholder="Enter your address here"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth: </td>
+                <td> <input type="text" id="dob" placeholder="YYYY-MM-dd"> </td>
+            </tr>
+    </table>
+</div>
+<br>
+<div id="response-section">
+    <button id="member" type="button">Add member</button>
+    <p id="response"></p>
+    <div id="details"></div>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
