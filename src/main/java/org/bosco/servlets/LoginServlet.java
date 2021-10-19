@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bosco.dtos.ErrorResponseDTO;
 import org.bosco.dtos.MemberDTO;
 import org.bosco.dtos.WelcomeDTO;
-import org.bosco.entities.JspMember;
 import org.bosco.service.MemberService;
 
 import javax.servlet.ServletException;
@@ -36,6 +35,8 @@ public class LoginServlet extends HttpServlet {
         WelcomeDTO message = new WelcomeDTO();
         message.setMessage("Welcome to the member JSP application & platform!");
         message.setTodaysDate(todaysDate);
+        System.out.println("===== ABOUT TO PRINT ALL MEMBERS DOWN BELOW ===== ");
+        service.printMembers();
         String response = mapper.writeValueAsString(message);
         resp.setStatus(200);
         resp.getWriter().write(response);

@@ -3,10 +3,7 @@ package org.bosco.repository;
 import org.bosco.dtos.MemberDTO;
 import org.bosco.entities.JspMember;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class MembersRepo {
 
@@ -49,6 +46,25 @@ public class MembersRepo {
                         m.getValue().getLastname());
 
         }
+    }
+
+    public Optional<JspMember> findMember (String lastname){
+
+        Optional<JspMember> member = Optional.empty();
+
+        Iterator<Map.Entry<Integer, JspMember>> iter = members.entrySet().iterator();
+        while(iter.hasNext()){
+            Map.Entry<Integer, JspMember> entry = iter.next();
+            System.out.println("The entry key for the input iterated is " + entry.getKey() + " and firstname is " +
+                    entry.getValue().getFirstname());
+            JspMember m = entry.getValue();
+            if(lastname.equalsIgnoreCase(m.getLastname())){
+                member = Optional.of(m);
+                break;
+            }
+        }
+
+        return member;
     }
 
     private int generateNumber (HashMap<Integer, JspMember> members){

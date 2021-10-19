@@ -37,14 +37,7 @@ public class MemberDTO {
      * @return
      */
     public JspMember createMemberFromDto (){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM YY");
-
         LocalDate dateOfBirth = LocalDate.parse(dob);
-        System.out.println("Formatted DOB: " + formatter.format(dateOfBirth));
-        System.out.println("Type of the formatted date is " + (formatter.format(dateOfBirth)).getClass() );
-
-        String formattedDOB = formatter.format(dateOfBirth);
-        System.out.println("The date of birth is " + formattedDOB);
 
         JspMember member = JspMember.getInstance();
         member.setFirstname(firstname);

@@ -3,6 +3,7 @@ package org.bosco.service;
 import org.bosco.dtos.MemberDTO;
 import org.bosco.entities.JspMember;
 import org.bosco.exceptions.FieldsEmptyException;
+import org.bosco.exceptions.InvalidInputException;
 import org.bosco.exceptions.InvalidMemberException;
 import org.bosco.exceptions.InvalidNameException;
 import org.bosco.repository.MembersRepo;
@@ -11,6 +12,7 @@ import org.bosco.validation.ValidateMember;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 public class MemberService {
 
@@ -61,6 +63,13 @@ public class MemberService {
 
     }
 
+    public Optional<JspMember> findMemberByLastname(String lastname){
+        if(null == lastname || lastname.isEmpty()){
+            throw new InvalidInputException("ERROR === The lastname input entered is invalid");
+        }
+
+        return repo.findMember(lastname);
+    }
 
     public void printMembers (){
         // Check if the request came from authentic source? Feature to be added later

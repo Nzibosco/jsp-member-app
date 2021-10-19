@@ -1,7 +1,10 @@
 package org.bosco;
 
 import org.bosco.dtos.MemberDTO;
+import org.bosco.entities.JspMember;
 import org.bosco.service.MemberService;
+
+import java.util.Optional;
 
 public class AppDriver {
 
@@ -17,7 +20,7 @@ public class AppDriver {
 
         firstname = "nik";
         lastname = "Ish2";
-        email = "nikishi@email.com";
+        email = "nikishi@email.rw";
         phoneNumber = "605-000-0403";
         address = "1400 Alt Run, Nashville, TN 31211";
         dob = "1907-05-10";
@@ -32,8 +35,8 @@ public class AppDriver {
 
         firstname = "Jean Bosco";
         lastname = "nzeyi";
-        email = "contact@email.com";
-        phoneNumber = "605-000-0403";
+        email = "conta_ct9@0email.10om";
+        phoneNumber = "198-999-8970";
         address = "12 KK street, Kigali, RW 14152";
         dob = "1093-01-01";
 
@@ -47,7 +50,7 @@ public class AppDriver {
         firstname = "Nique";
         lastname = "SengaMungu";
         email = "iquesenga@email.com";
-        phoneNumber = "002-220-3021";
+        phoneNumber = "002-220-3020";
         address = "1st Nyungwe West Rd, Kitabi Ecocenter Ltd. & Friends of Nyungwe, Nymgbe, Rwanda 34345";
         dob = "1988-01-21";
 
@@ -68,6 +71,10 @@ public class AppDriver {
         }
 
         service.printMembers();
+
+        System.out.println("==== METHOD TO FIND A MEMBER BY LAST NAME ===== ");
+        Optional<JspMember> optional = service.findMemberByLastname("nzeyi");
+        System.out.println(optional);
 
     }
 }
